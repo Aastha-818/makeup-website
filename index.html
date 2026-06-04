@@ -1,0 +1,1176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Makeovers by NK | Nidhi Kansal — Luxury Bridal Makeup Artist Bangalore</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold: #C9A96E;
+  --gold-light: #E8D5B0;
+  --gold-dark: #9A7A42;
+  --blush: #F5EAE2;
+  --deep: #1A1009;
+  --dark: #2D1F0F;
+  --mid: #5C4A2A;
+  --light-text: #8B7355;
+  --white: #FEFCF8;
+  --section-bg: #FAF6F0;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Montserrat',sans-serif;background:var(--white);color:var(--dark);overflow-x:hidden;}
+::-webkit-scrollbar{width:4px;}
+::-webkit-scrollbar-track{background:var(--blush);}
+::-webkit-scrollbar-thumb{background:var(--gold);border-radius:2px;}
+
+/* NAV */
+nav{position:fixed;top:0;width:100%;z-index:100;padding:1.25rem 3rem;display:flex;align-items:center;justify-content:space-between;transition:background 0.4s,box-shadow 0.4s;}
+nav.scrolled{background:rgba(254,252,248,0.96);backdrop-filter:blur(12px);box-shadow:0 1px 0 rgba(201,169,110,0.2);}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:500;letter-spacing:0.08em;color:var(--white);text-decoration:none;transition:color 0.4s;}
+nav.scrolled .nav-logo{color:var(--dark);}
+.nav-links{display:flex;gap:2.5rem;list-style:none;}
+.nav-links a{font-size:0.7rem;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;color:rgba(255,255,255,0.85);transition:color 0.3s;}
+nav.scrolled .nav-links a{color:var(--mid);}
+.nav-links a:hover{color:var(--gold);}
+.nav-cta{background:var(--gold);color:var(--deep)!important;padding:0.55rem 1.4rem;border-radius:2px;font-weight:600;letter-spacing:0.12em;}
+.nav-cta:hover{background:var(--gold-dark);color:var(--white)!important;}
+.hamburger{display:none;cursor:pointer;flex-direction:column;gap:5px;}
+.hamburger span{width:24px;height:1px;background:var(--white);transition:0.3s;}
+nav.scrolled .hamburger span{background:var(--dark);}
+
+/* ═══════════════════════════════════════
+   HERO — EDITORIAL SLIDESHOW + GLASS UI
+═══════════════════════════════════════ */
+
+:root{
+  --hero-bg: #150B05;
+  --hero-mid: #2E1A0A;
+}
+
+#hero{
+  min-height:100vh;
+  position:relative;
+  display:flex;
+  align-items:flex-end;
+  overflow:hidden;
+  background:var(--hero-bg);
+}
+
+/* ── Rotating image slideshow ── */
+.hero-slides{position:absolute;inset:0;z-index:1;}
+.hero-slide{
+  position:absolute;inset:0;
+  opacity:0;
+  background-size:cover;
+  background-position:60% center;
+  animation:slideKen 24s linear infinite;
+  transition:opacity 1.6s ease-in-out;
+}
+.hero-slide.active{opacity:1;}
+@keyframes slideKen{
+  0%{transform:scale(1.0);}
+  100%{transform:scale(1.12);}
+}
+
+/* Gradient — dark LEFT, transparent RIGHT so photo bleeds */
+.hero-gradient{
+  position:absolute;inset:0;z-index:2;
+  background:
+    linear-gradient(
+      to right,
+      #150B05 0%,
+      #150B05 18%,
+      rgba(21,11,5,0.95) 27%,
+      rgba(21,11,5,0.80) 36%,
+      rgba(21,11,5,0.55) 46%,
+      rgba(21,11,5,0.25) 56%,
+      rgba(21,11,5,0.05) 66%,
+      transparent 74%
+    ),
+    linear-gradient(
+      to top,
+      rgba(10,5,2,0.92) 0%,
+      rgba(10,5,2,0.45) 14%,
+      transparent 32%
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(8,4,1,0.55) 0%,
+      transparent 16%
+    );
+}
+
+/* Grain */
+.hero-grain{
+  position:absolute;inset:0;z-index:3;
+  opacity:0.04;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Decorative thin gold frame inset */
+.hero-frame{
+  position:absolute;inset:1.5rem;z-index:4;pointer-events:none;
+  border:1px solid rgba(201,169,110,0.18);
+}
+
+/* Content layer */
+.hero-content{
+  position:relative;z-index:5;
+  width:100%;
+  padding:0 7vw 5rem;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  min-height:100vh;
+}
+
+/* Eyebrow badge */
+.hero-label{
+  display:inline-flex;align-items:center;gap:0.75rem;
+  margin-bottom:1.6rem;width:fit-content;
+  background:rgba(201,169,110,0.08);
+  border:1px solid rgba(201,169,110,0.25);
+  padding:0.5rem 1.1rem;border-radius:100px;
+  backdrop-filter:blur(6px);
+  opacity:0;animation:hIn 0.8s 0.2s forwards;
+}
+.hero-label-dot{
+  width:7px;height:7px;border-radius:50%;background:var(--gold);
+  animation:dotPulse 2.5s ease-in-out infinite;
+}
+@keyframes dotPulse{
+  0%,100%{box-shadow:0 0 0 0 rgba(201,169,110,0.7);}
+  50%{box-shadow:0 0 0 7px rgba(201,169,110,0);}
+}
+.hero-label-text{
+  font-size:0.62rem;letter-spacing:0.28em;text-transform:uppercase;
+  color:var(--gold);font-weight:500;
+}
+
+/* Name block — editorial with outlined word */
+.hero-name-block{
+  margin-bottom:0.8rem;
+  opacity:0;animation:hIn 0.9s 0.4s forwards;
+}
+.hero-name-top{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(1.4rem,3vw,2.3rem);
+  font-weight:500;letter-spacing:0.32em;text-transform:uppercase;
+  color:var(--gold);display:block;line-height:1;
+  margin-bottom:0.35rem;
+  position:relative;padding-left:0;
+}
+.hero-name-role{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(3.8rem,9vw,8.5rem);
+  font-weight:300;line-height:0.85;
+  color:var(--white);display:block;
+  letter-spacing:-0.015em;
+}
+/* "Makeovers" is solid white, "by NK" outlined gold */
+.hero-name-role .outline{
+  display:block;
+  -webkit-text-stroke:1.5px var(--gold);
+  color:transparent;
+  font-style:italic;
+  font-weight:400;
+  margin-top:0.1rem;
+  position:relative;
+}
+/* shimmer sweep across the outlined text */
+.hero-name-role .outline::after{
+  content:'by NK';
+  position:absolute;left:0;top:0;
+  color:var(--gold);
+  -webkit-text-stroke:0;
+  background:linear-gradient(110deg,transparent 30%,rgba(232,213,176,0.9) 50%,transparent 70%);
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-size:220% 100%;
+  animation:shimmer 5s ease-in-out infinite;
+}
+@keyframes shimmer{
+  0%{background-position:120% 0;}
+  60%,100%{background-position:-120% 0;}
+}
+
+/* Tagline */
+.hero-tagline2{
+  font-size:0.85rem;line-height:1.9;
+  color:rgba(255,255,255,0.55);
+  max-width:520px;
+  margin-bottom:2.5rem;
+  opacity:0;animation:hIn 0.9s 0.65s forwards;
+}
+.hero-tagline2 span{color:rgba(201,169,110,0.95);font-weight:500;}
+
+/* CTA buttons */
+.hero-btns{
+  display:flex;gap:1.1rem;flex-wrap:wrap;align-items:center;
+  margin-bottom:3.5rem;
+  opacity:0;animation:hIn 0.9s 0.85s forwards;
+}
+.btn-primary{
+  padding:0.95rem 2.4rem;
+  background:rgba(201,169,110,0.12);
+  border:1px solid rgba(201,169,110,0.5);
+  color:var(--white);
+  text-decoration:none;font-size:0.68rem;
+  letter-spacing:0.18em;text-transform:uppercase;
+  font-weight:500;border-radius:100px;transition:all 0.35s;
+  display:inline-flex;align-items:center;gap:0.5rem;
+  backdrop-filter:blur(6px);
+}
+.btn-primary:hover{
+  background:var(--gold);color:var(--deep);
+  border-color:var(--gold);transform:translateY(-2px);
+  box-shadow:0 12px 30px rgba(201,169,110,0.25);
+}
+.btn-primary.solid{
+  background:var(--gold);color:var(--deep);border-color:var(--gold);
+  box-shadow:0 8px 24px rgba(201,169,110,0.2);
+}
+.btn-primary.solid:hover{background:var(--white);border-color:var(--white);}
+.btn-text{
+  color:rgba(255,255,255,0.6);text-decoration:none;
+  font-size:0.68rem;letter-spacing:0.15em;text-transform:uppercase;
+  display:inline-flex;align-items:center;gap:0.5rem;transition:color 0.3s;
+}
+.btn-text:hover{color:var(--gold);}
+.btn-text svg{width:26px;height:26px;stroke:currentColor;fill:none;stroke-width:1;border:1px solid currentColor;border-radius:50%;padding:6px;transition:all 0.3s;}
+.btn-text:hover svg{background:rgba(201,169,110,0.15);}
+
+/* Stats bar — bottom strip with glass treatment */
+.hero-stats{
+  display:flex;gap:0;
+  opacity:0;animation:hIn 0.9s 1.05s forwards;
+  border-top:1px solid rgba(201,169,110,0.18);
+  padding-top:1.8rem;
+  max-width:600px;
+}
+.h-stat{
+  flex:1;text-align:left;
+  padding-right:1.8rem;
+  border-right:1px solid rgba(201,169,110,0.12);
+  margin-right:1.8rem;
+}
+.h-stat:last-child{border-right:none;margin-right:0;}
+.h-stat-num{
+  font-family:'Cormorant Garamond',serif;
+  font-size:2.5rem;font-weight:300;
+  color:var(--white);line-height:1;
+  letter-spacing:-0.01em;
+}
+.h-stat-num em{color:var(--gold);font-style:normal;}
+.h-stat-label{
+  font-size:0.58rem;letter-spacing:0.16em;text-transform:uppercase;
+  color:rgba(255,255,255,0.4);margin-top:0.3rem;
+}
+
+/* Floating glass review card — top right */
+.hero-review-card{
+  position:absolute;top:5.5rem;right:3vw;z-index:10;
+  width:230px;
+  background:rgba(20,12,5,0.55);
+  border:1px solid rgba(201,169,110,0.25);
+  border-radius:14px;
+  padding:1.3rem 1.4rem;
+  backdrop-filter:blur(16px);
+  opacity:0;animation:hIn 1s 1.3s forwards;
+  box-shadow:0 20px 50px rgba(0,0,0,0.35);
+}
+.hrc-stars{color:var(--gold);font-size:0.8rem;letter-spacing:0.15em;margin-bottom:0.6rem;}
+.hrc-quote{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:0.95rem;line-height:1.5;color:rgba(255,255,255,0.85);
+  margin-bottom:0.9rem;
+}
+.hrc-meta{display:flex;align-items:center;gap:0.6rem;}
+.hrc-avatar{
+  width:30px;height:30px;border-radius:50%;
+  background:linear-gradient(135deg,var(--gold),var(--gold-dark));
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Cormorant Garamond',serif;font-size:0.85rem;color:var(--deep);font-weight:600;
+  flex-shrink:0;
+}
+.hrc-name{font-size:0.62rem;letter-spacing:0.1em;color:var(--white);}
+.hrc-sub{font-size:0.55rem;letter-spacing:0.08em;color:rgba(201,169,110,0.8);margin-top:0.1rem;}
+
+/* Instagram pill — top right corner */
+.hero-ig-pill{
+  position:absolute;top:1.8rem;right:3vw;z-index:11;
+  display:flex;align-items:center;gap:0.6rem;
+  background:rgba(20,12,5,0.6);
+  border:1px solid rgba(201,169,110,0.25);
+  padding:0.55rem 1rem;border-radius:100px;
+  backdrop-filter:blur(10px);
+  opacity:0;animation:hIn 1s 1.15s forwards;
+  text-decoration:none;transition:border-color 0.3s;
+}
+.hero-ig-pill:hover{border-color:var(--gold);}
+.hero-ig-pill svg{width:15px;height:15px;fill:var(--gold);flex-shrink:0;}
+.hero-ig-pill strong{font-size:0.62rem;color:var(--gold-light);font-weight:500;letter-spacing:0.05em;}
+
+/* Slide indicators — bottom right */
+.hero-dots{
+  position:absolute;bottom:2.5rem;right:7vw;z-index:10;
+  display:flex;gap:0.6rem;
+  opacity:0;animation:hIn 1s 1.5s forwards;
+}
+.hero-dot{
+  width:28px;height:2px;background:rgba(255,255,255,0.25);
+  cursor:pointer;transition:background 0.3s;border:none;padding:0;
+  position:relative;overflow:hidden;
+}
+.hero-dot.active{background:rgba(201,169,110,0.4);}
+.hero-dot.active::after{
+  content:'';position:absolute;inset:0;background:var(--gold);
+  transform-origin:left;animation:dotFill 6s linear;
+}
+@keyframes dotFill{from{transform:scaleX(0);}to{transform:scaleX(1);}}
+
+@keyframes hIn{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
+
+/* ─── SECTION BASE ─── */
+section{padding:6rem 2rem;}
+.container{max-width:1200px;margin:0 auto;}
+.section-eyebrow{font-size:0.6rem;letter-spacing:0.35em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;display:flex;align-items:center;gap:1rem;}
+.section-eyebrow::before{content:'';width:30px;height:1px;background:var(--gold);}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,4vw,3.2rem);font-weight:400;line-height:1.15;color:var(--dark);margin-bottom:1.5rem;}
+.section-title em{font-style:italic;color:var(--gold-dark);}
+
+/* ─── ABOUT ─── */
+#about{background:var(--section-bg);}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;}
+.about-img-placeholder{width:100%;aspect-ratio:3/4;background:linear-gradient(160deg,#2D1F0F 0%,#4A2E15 50%,#1A1009 100%);border-radius:2px;display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative;}
+.about-img-placeholder img{width:100%;height:100%;object-fit:cover;border-radius:2px;}
+.about-accent-box{position:absolute;bottom:-2rem;right:-2rem;width:160px;padding:1.5rem;background:var(--gold);border-radius:2px;text-align:center;}
+.accent-num{font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:300;color:var(--deep);line-height:1;}
+.accent-label{font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--deep);margin-top:0.3rem;line-height:1.4;}
+.about-text p{font-size:0.85rem;line-height:2;color:var(--mid);margin-bottom:1.5rem;}
+.about-text p:first-of-type{font-size:1rem;color:var(--dark);}
+.about-tags{display:flex;flex-wrap:wrap;gap:0.6rem;margin-top:2rem;}
+.tag{font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;border:1px solid var(--gold-light);color:var(--gold-dark);padding:0.4rem 1rem;border-radius:1px;}
+
+/* Instagram badge — highlighted */
+.instagram-badge{
+  display:inline-flex;align-items:center;gap:0.75rem;
+  margin-top:2.5rem; text-decoration:none;
+  background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045);
+  padding:0.75rem 1.5rem;border-radius:8px;
+  color:#fff;font-size:0.72rem;letter-spacing:0.08em;font-weight:500;
+  transition:transform 0.3s,box-shadow 0.3s;
+  box-shadow:0 4px 20px rgba(253,29,29,0.25);
+}
+.instagram-badge:hover{transform:translateY(-3px);box-shadow:0 8px 30px rgba(253,29,29,0.35);}
+.instagram-badge svg{width:18px;height:18px;fill:#fff;}
+.instagram-badge .ig-stats{font-size:0.6rem;opacity:0.8;margin-left:0.25rem;}
+
+/* ─── SERVICES ─── */
+#services{background:var(--dark);}
+#services .section-title{color:var(--white);}
+
+/* 3-col layout, last row has "Makeup Trials" spanning full width */
+.services-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1.5px;margin-top:4rem;
+  border:1.5px solid rgba(201,169,110,0.15);
+  border-radius:2px;overflow:hidden;
+}
+/* First 5 cards normal; last card (Makeup Trials) spans all 3 cols as banner */
+.service-card{background:rgba(255,255,255,0.03);padding:2.5rem 2rem;text-align:center;border:1.5px solid rgba(201,169,110,0.1);transition:background 0.35s,transform 0.35s;cursor:default;}
+.service-card:hover{background:rgba(201,169,110,0.08);transform:translateY(-4px);}
+.service-card.banner{
+  grid-column:1/-1;
+  display:grid;grid-template-columns:auto 1fr auto;
+  align-items:center;gap:3rem;
+  text-align:left;padding:2.5rem 3rem;
+}
+.service-icon{width:44px;height:44px;margin:0 auto 1.5rem;border-radius:50%;background:rgba(201,169,110,0.1);display:flex;align-items:center;justify-content:center;}
+.service-card.banner .service-icon{margin:0;flex-shrink:0;}
+.service-icon svg{width:20px;height:20px;stroke:var(--gold);fill:none;stroke-width:1.5;}
+.service-name{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:400;color:var(--white);margin-bottom:0.75rem;letter-spacing:0.03em;}
+.service-card.banner .service-name{font-size:1.6rem;margin-bottom:0.5rem;}
+.service-desc{font-size:0.72rem;line-height:1.8;color:rgba(255,255,255,0.4);letter-spacing:0.03em;}
+.service-card.banner .service-desc{font-size:0.78rem;color:rgba(255,255,255,0.5);max-width:500px;}
+.service-price{display:inline-block;margin-top:1.2rem;font-size:0.65rem;letter-spacing:0.15em;color:var(--gold);border-top:1px solid rgba(201,169,110,0.2);padding-top:1rem;width:100%;}
+.service-card.banner .service-price{border-top:none;padding-top:0;margin-top:0;width:auto;white-space:nowrap;}
+/* Trial card special CTA */
+.service-card--trial{position:relative;}
+.service-trial-cta{
+  display:inline-block;margin-top:1.5rem;
+  padding:0.6rem 1.4rem;
+  background:var(--gold);color:var(--deep);
+  text-decoration:none;font-size:0.62rem;letter-spacing:0.18em;
+  text-transform:uppercase;font-weight:600;border-radius:2px;
+  transition:all 0.3s;
+}
+.service-trial-cta:hover{background:var(--white);}
+
+/* ─── GALLERY ─── */
+#gallery{background:var(--white);}
+.gallery-tabs{display:flex;gap:0;margin:3rem 0 2.5rem;border-bottom:1px solid rgba(201,169,110,0.2);flex-wrap:wrap;}
+.gallery-tab{padding:0.75rem 1.5rem;font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--light-text);cursor:pointer;border:none;background:none;border-bottom:2px solid transparent;margin-bottom:-1px;transition:color 0.3s,border-color 0.3s;}
+.gallery-tab.active,.gallery-tab:hover{color:var(--gold-dark);border-bottom-color:var(--gold);}
+
+/* 4-col uniform grid — portrait cards, every face fully framed */
+.gallery-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:8px;
+}
+.gallery-item{
+  position:relative;
+  overflow:hidden;
+  border-radius:3px;
+  cursor:pointer;
+  aspect-ratio:4/5;
+  background:var(--blush);
+}
+/* NO nth-child span overrides — every cell identical size */
+.gallery-item img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center 10%; /* pull slightly upward so face/head is centered */
+  display:block;
+  /* NO transform on hover — image stays static */
+  transition:filter 0.35s ease;
+}
+.gallery-item:hover img{
+  filter:brightness(1.06) saturate(1.08);
+}
+.gallery-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(26,16,9,0.8) 0%,rgba(26,16,9,0.1) 40%,transparent 60%);
+  opacity:0;transition:opacity 0.35s;
+  display:flex;align-items:flex-end;padding:1rem 1.1rem;
+}
+.gallery-item:hover .gallery-overlay{opacity:1;}
+.gallery-label{font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold-light);line-height:1.4;}
+
+/* fallback placeholder for broken images */
+.img-wrap{width:100%;height:100%;position:relative;}
+.img-wrap img{width:100%;height:100%;object-fit:cover;display:block;}
+.img-fallback{
+  position:absolute;inset:0;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  background:linear-gradient(160deg,#2D1F0F 0%,#4A2E15 50%,#3D2810 100%);
+  color:rgba(201,169,110,0.5);font-size:0.6rem;letter-spacing:0.15em;
+  text-transform:uppercase;gap:0.5rem;
+}
+.img-fallback svg{width:28px;height:28px;stroke:rgba(201,169,110,0.4);fill:none;stroke-width:1;}
+
+/* Scrolling strip */
+.looks-strip{overflow:hidden;margin-top:3rem;position:relative;}
+.looks-track{display:flex;gap:1rem;animation:scrollStrip 30s linear infinite;width:max-content;}
+.looks-track:hover{animation-play-state:paused;}
+@keyframes scrollStrip{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+.look-chip{flex-shrink:0;width:180px;height:220px;border-radius:2px;overflow:hidden;position:relative;background:var(--blush);}
+.look-chip img{width:100%;height:100%;object-fit:cover;object-position:center 15%;}
+
+/* ─── TESTIMONIALS ─── */
+#testimonials{background:var(--section-bg);}
+.testimonials-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:3rem;}
+.testimonial-card{background:var(--white);padding:2.5rem;border-radius:2px;border-left:3px solid var(--gold);transition:transform 0.3s,box-shadow 0.3s;}
+.testimonial-card:hover{transform:translateY(-4px);box-shadow:0 20px 60px rgba(201,169,110,0.1);}
+.stars{color:var(--gold);font-size:0.85rem;margin-bottom:1.2rem;letter-spacing:0.1em;}
+.testimonial-text{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-style:italic;line-height:1.8;color:var(--dark);margin-bottom:1.5rem;}
+.testimonial-author{font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--light-text);}
+.testimonial-occasion{font-size:0.6rem;color:var(--gold-dark);margin-top:0.2rem;}
+
+/* ─── PROCESS ─── */
+#process{background:var(--white);}
+.process-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:4rem;position:relative;}
+.process-steps::before{content:'';position:absolute;top:2.5rem;left:12.5%;right:12.5%;height:1px;background:linear-gradient(90deg,transparent,var(--gold-light),transparent);}
+.process-step{text-align:center;padding:0 1.5rem;}
+.step-num{width:50px;height:50px;border-radius:50%;background:var(--white);border:1px solid var(--gold);display:flex;align-items:center;justify-content:center;margin:0 auto 2rem;font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:var(--gold);position:relative;z-index:1;}
+.step-title{font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:var(--dark);margin-bottom:0.75rem;}
+.step-desc{font-size:0.72rem;line-height:1.9;color:var(--light-text);}
+
+/* ─── PRICING ─── */
+#pricing{background:var(--dark);padding:6rem 2rem;}
+#pricing .section-title{color:var(--white);}
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:4rem;}
+.pricing-card{border:1px solid rgba(201,169,110,0.2);padding:3rem 2.5rem;border-radius:2px;transition:border-color 0.3s,transform 0.3s;position:relative;}
+.pricing-card.featured{border-color:var(--gold);background:rgba(201,169,110,0.05);transform:scale(1.02);}
+.featured-badge{position:absolute;top:-1px;left:50%;transform:translateX(-50%);background:var(--gold);color:var(--deep);font-size:0.55rem;letter-spacing:0.2em;text-transform:uppercase;padding:0.35rem 1.2rem;font-weight:600;border-radius:0 0 2px 2px;}
+.pricing-tier{font-size:0.6rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;}
+.pricing-name{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:300;color:var(--white);margin-bottom:0.5rem;}
+.pricing-price{font-family:'Cormorant Garamond',serif;font-size:2.5rem;color:var(--gold);line-height:1;margin-bottom:2rem;}
+.pricing-price span{font-size:1rem;font-family:'Montserrat',sans-serif;}
+.pricing-divider{height:1px;background:rgba(201,169,110,0.15);margin-bottom:2rem;}
+.pricing-features{list-style:none;}
+.pricing-features li{font-size:0.72rem;color:rgba(255,255,255,0.6);padding:0.55rem 0;display:flex;align-items:center;gap:0.75rem;border-bottom:1px solid rgba(201,169,110,0.07);}
+.pricing-features li::before{content:'◆';color:var(--gold);font-size:0.4rem;flex-shrink:0;}
+.pricing-cta{display:block;margin-top:2.5rem;padding:0.85rem;text-align:center;border:1px solid rgba(201,169,110,0.3);color:rgba(255,255,255,0.7);text-decoration:none;font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;border-radius:2px;transition:all 0.3s;}
+.pricing-cta:hover,.featured .pricing-cta{background:var(--gold);color:var(--deep);border-color:var(--gold);}
+
+/* ─── CONTACT ─── */
+#contact{background:var(--section-bg);}
+.contact-layout{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;}
+.contact-info p{font-size:0.83rem;line-height:2;color:var(--mid);margin-bottom:2.5rem;}
+.contact-detail{display:flex;gap:1rem;align-items:flex-start;margin-bottom:1.5rem;}
+.contact-detail-icon{width:36px;height:36px;border-radius:50%;background:var(--blush);border:1px solid var(--gold-light);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.contact-detail-icon svg{width:15px;height:15px;stroke:var(--gold-dark);fill:none;stroke-width:1.5;}
+.contact-detail-label{font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--light-text);}
+.contact-detail-value{font-size:0.83rem;color:var(--dark);margin-top:0.2rem;font-weight:500;}
+.social-row{display:flex;gap:1rem;margin-top:2.5rem;}
+.social-btn{display:flex;align-items:center;gap:0.6rem;padding:0.6rem 1.2rem;border:1px solid var(--gold-light);border-radius:2px;text-decoration:none;color:var(--gold-dark);font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;transition:all 0.3s;}
+.social-btn:hover{background:var(--gold);color:var(--deep);border-color:var(--gold);}
+.social-btn svg{width:14px;height:14px;fill:currentColor;}
+.contact-form{display:flex;flex-direction:column;gap:1rem;}
+.form-group{display:flex;flex-direction:column;gap:0.4rem;}
+.form-label{font-size:0.6rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--light-text);}
+.form-input,.form-select,.form-textarea{padding:0.85rem 1rem;background:var(--white);border:1px solid rgba(201,169,110,0.25);border-radius:2px;font-family:'Montserrat',sans-serif;font-size:0.83rem;color:var(--dark);width:100%;transition:border-color 0.3s;outline:none;}
+.form-input:focus,.form-select:focus,.form-textarea:focus{border-color:var(--gold);}
+.form-textarea{resize:none;height:120px;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.form-submit{padding:1rem;background:var(--gold);color:var(--deep);border:none;cursor:pointer;font-family:'Montserrat',sans-serif;font-size:0.68rem;letter-spacing:0.22em;text-transform:uppercase;font-weight:600;border-radius:2px;transition:all 0.3s;margin-top:0.5rem;}
+.form-submit:hover{background:var(--dark);color:var(--gold);}
+
+/* ─── INSTAGRAM SECTION ─── */
+#instagram{background:var(--dark);padding:5rem 0;}
+#instagram .container{text-align:center;}
+.ig-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:3px;}
+.ig-item{aspect-ratio:1;overflow:hidden;position:relative;background:var(--dark);cursor:pointer;}
+.ig-item img{width:100%;height:100%;object-fit:cover;transition:transform 0.5s;display:block;}
+.ig-item:hover img{transform:scale(1.1);}
+.ig-item-overlay{position:absolute;inset:0;background:rgba(26,16,9,0.6);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity 0.3s;}
+.ig-item:hover .ig-item-overlay{opacity:1;}
+.ig-item-overlay svg{width:24px;height:24px;fill:var(--white);}
+
+/* ─── FOOTER ─── */
+footer{background:var(--deep);padding:4rem 2rem 2rem;border-top:1px solid rgba(201,169,110,0.1);}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3rem;}
+.footer-brand-name{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:300;color:var(--gold);margin-bottom:1rem;}
+.footer-brand-desc{font-size:0.72rem;line-height:1.9;color:rgba(255,255,255,0.3);max-width:280px;}
+.footer-col-title{font-size:0.6rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:0.75rem;}
+.footer-links a{font-size:0.75rem;color:rgba(255,255,255,0.35);text-decoration:none;transition:color 0.3s;letter-spacing:0.05em;}
+.footer-links a:hover{color:var(--gold-light);}
+.footer-bottom{border-top:1px solid rgba(201,169,110,0.08);padding-top:2rem;display:flex;justify-content:space-between;align-items:center;}
+.footer-copy{font-size:0.65rem;color:rgba(255,255,255,0.2);letter-spacing:0.05em;}
+
+/* ─── ANIMATIONS ─── */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity 0.7s ease,transform 0.7s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+.reveal-delay-1{transition-delay:0.1s;}
+.reveal-delay-2{transition-delay:0.2s;}
+.reveal-delay-3{transition-delay:0.3s;}
+
+
+/* ─── RESPONSIVE ─── */
+@media(max-width:1024px){
+  .hero-content{padding:7rem 3rem 5rem 2.5rem;}
+}
+@media(max-width:900px){
+  nav{padding:1rem 1.5rem;}
+  .nav-links{display:none;}
+  .hamburger{display:flex;}
+  nav.menu-open .nav-links{display:flex;flex-direction:column;gap:0;position:fixed;inset:0;top:60px;background:var(--deep);padding:2rem;align-items:center;justify-content:center;}
+  nav.menu-open .nav-links a{font-size:1.2rem;padding:1rem;color:var(--white);}
+  /* Hero on mobile */
+  #hero{min-height:100vh;}
+  .hero-frame{inset:0.8rem;}
+  .hero-content{padding:0 6vw 4.5rem;}
+  .hero-ig-pill{top:1rem;right:1rem;}
+  .hero-review-card{display:none;}
+  .hero-dots{right:6vw;bottom:1.8rem;}
+  .hero-stats{flex-wrap:wrap;gap:1rem 0;max-width:none;}
+  .h-stat{flex:0 0 45%;border-right:none;margin-right:0;}
+  .about-grid{grid-template-columns:1fr;gap:3rem;}
+  .about-accent-box{bottom:-1.5rem;right:1rem;}
+  .services-grid{grid-template-columns:1fr 1fr;}
+  .gallery-grid{grid-template-columns:repeat(2,1fr);}
+  .gallery-item:nth-child(3n+1){grid-row:span 1;aspect-ratio:3/4;}
+  .testimonials-grid{grid-template-columns:1fr;}
+  .process-steps{grid-template-columns:1fr 1fr;gap:2rem;}
+  .process-steps::before{display:none;}
+  .pricing-grid{grid-template-columns:1fr;}
+  .pricing-card.featured{transform:none;}
+  .contact-layout{grid-template-columns:1fr;gap:3rem;}
+  .footer-top{grid-template-columns:1fr 1fr;gap:2rem;}
+  .ig-grid{grid-template-columns:repeat(3,1fr);}
+}
+@media(max-width:520px){
+  .services-grid{grid-template-columns:1fr;}
+  .gallery-grid{grid-template-columns:1fr 1fr;}
+  .process-steps{grid-template-columns:1fr;}
+  .form-row{grid-template-columns:1fr;}
+  .footer-top{grid-template-columns:1fr;}
+  .ig-grid{grid-template-columns:repeat(3,1fr);}
+  .footer-bottom{flex-direction:column;gap:1rem;text-align:center;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">Makeovers <em style="font-style:italic">by</em> NK</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#contact" class="nav-cta">Book Now</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════
+     HERO — EDITORIAL SLIDESHOW
+═══════════════════════════════ -->
+<section id="hero">
+
+  <!-- Rotating background slideshow -->
+  <div class="hero-slides" id="heroSlides">
+    <div class="hero-slide active" style="background-image:url('https://images.pexels.com/photos/8990725/pexels-photo-8990725.jpeg?auto=compress&cs=tinysrgb&w=1600')"></div>
+    <div class="hero-slide" style="background-image:url('https://cdn0.weddingwire.in/vendor/3158/3_2/960/png/north-indan-bridal-look-1687787911654_15_453158-169121731968747.jpeg')"></div>
+    <div class="hero-slide" style="background-image:url('https://images.pexels.com/photos/8558246/pexels-photo-8558246.jpeg?auto=compress&cs=tinysrgb&w=1600')"></div>
+    <div class="hero-slide" style="background-image:url('https://cdn0.weddingwire.in/vendor/3158/3_2/960/png/55-remini-enhanced-fotor-20230801164829-fotor-20230804234626_15_453158-169117301191614.jpeg')"></div>
+  </div>
+
+  <!-- Warm gradient + grain + frame -->
+  <div class="hero-gradient"></div>
+  <div class="hero-grain"></div>
+  <div class="hero-frame"></div>
+
+  <!-- Content — left-aligned, bottom-anchored -->
+  <div class="hero-content">
+
+    <div class="hero-label">
+      <div class="hero-label-dot"></div>
+      <span class="hero-label-text">Pro Bridal Makeup Artist · Bangalore</span>
+    </div>
+
+    <div class="hero-name-block">
+      <span class="hero-name-top">Nidhi Kansal</span>
+      <span class="hero-name-role">
+        Makeovers
+        <span class="outline">by NK</span>
+      </span>
+    </div>
+
+    <p class="hero-tagline2">
+      Transforming brides into their most radiant selves —<br>
+      <span>NRI Specialist</span> · North &amp; South Indian MUA · HD &amp; Airbrush Expert
+    </p>
+
+    <div class="hero-btns">
+      <a href="#contact" class="btn-primary solid">Book a Trial</a>
+      <a href="#gallery" class="btn-text">
+        <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        View Portfolio
+      </a>
+    </div>
+
+    <div class="hero-stats">
+      <div class="h-stat">
+        <div class="h-stat-num">500<em>+</em></div>
+        <div class="h-stat-label">Happy Brides</div>
+      </div>
+      <div class="h-stat">
+        <div class="h-stat-num">4.8<em>★</em></div>
+        <div class="h-stat-label">Avg Rating</div>
+      </div>
+      <div class="h-stat">
+        <div class="h-stat-num">8K<em>+</em></div>
+        <div class="h-stat-label">Followers</div>
+      </div>
+      <div class="h-stat">
+        <div class="h-stat-num">10<em>+</em></div>
+        <div class="h-stat-label">Years Exp.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Instagram pill -->
+  <a href="https://www.instagram.com/makeovers_by_nk/" target="_blank" class="hero-ig-pill">
+    <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+    <strong>@makeovers_by_nk</strong>
+  </a>
+
+  <!-- Glass review card -->
+  <div class="hero-review-card">
+    <div class="hrc-stars">★★★★★</div>
+    <p class="hrc-quote">"Queen of Natural Makeup — pure elegance and radiance."</p>
+    <div class="hrc-meta">
+      <div class="hrc-avatar">D</div>
+      <div>
+        <div class="hrc-name">Devangini</div>
+        <div class="hrc-sub">Verified Bride · 96% recommend</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide indicators -->
+  <div class="hero-dots" id="heroDots">
+    <button class="hero-dot active" onclick="goToSlide(0)"></button>
+    <button class="hero-dot" onclick="goToSlide(1)"></button>
+    <button class="hero-dot" onclick="goToSlide(2)"></button>
+    <button class="hero-dot" onclick="goToSlide(3)"></button>
+  </div>
+
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-image-frame reveal" style="position:relative">
+        <div class="about-img-placeholder">
+          <img src="https://cdn0.weddingwire.in/vendor/3158/3_2/960/jpg/0o0a3924_15_453158-169096742732709.jpeg"
+            alt="Nidhi Kansal" loading="lazy"
+            onerror="this.onerror=null;this.src='https://cdn0.weddingwire.in/vendor/3158/3_2/960/png/2000-fotor-2023080116420_15_453158-169090300621998.jpeg'">
+        </div>
+        <div class="about-accent-box">
+          <div class="accent-num">96%</div>
+          <div class="accent-label">Couples Recommend</div>
+        </div>
+      </div>
+      <div class="about-text">
+        <div class="section-eyebrow reveal">The Artist</div>
+        <h2 class="section-title reveal">Where Beauty Meets <em>Artistry</em></h2>
+        <p class="reveal">Nidhi Kansal is Bangalore's premier luxury bridal makeup artist, celebrated for her ability to create looks that feel effortlessly authentic to each bride — whether North Indian, South Indian, NRI, or multi-cultural.</p>
+        <p class="reveal">With over 78 glowing reviews and a 96% recommendation rate, Nidhi uses cutting-edge AI skin analysis technology to personalise every look. Her sweatproof, long-lasting formulas stay flawless from sunrise ceremonies to midnight receptions.</p>
+        <p class="reveal">Based in RR Nagar, Bangalore, Nidhi travels outstation and serves NRI brides across India and internationally — bringing her signature blend of luxury cosmetics, hairstyling, and warmth to every occasion.</p>
+        <div class="about-tags reveal">
+          <span class="tag">HD Makeup</span>
+          <span class="tag">Airbrush</span>
+          <span class="tag">Skin Finish</span>
+          <span class="tag">North Indian</span>
+          <span class="tag">South Indian</span>
+          <span class="tag">NRI Specialist</span>
+          <span class="tag">Hairstyling</span>
+          <span class="tag">Saree Draping</span>
+        </div>
+        <a href="https://www.instagram.com/makeovers_by_nk/" target="_blank" class="instagram-badge reveal">
+          <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          <span>@makeovers_by_nk</span>
+          <span class="ig-stats">8,307 Followers · 1,741 Posts</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="container">
+    <div class="section-eyebrow reveal" style="color:var(--gold)">What I Offer</div>
+    <h2 class="section-title reveal" style="color:var(--white)">Signature <em>Services</em></h2>
+    <div class="services-grid reveal">
+      <!-- Row 1: 3 cards -->
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></div>
+        <div class="service-name">Bridal Makeup</div>
+        <div class="service-desc">Full HD or airbrush bridal look with hairstyling, draping &amp; extensions</div>
+        <div class="service-price">From ₹10,000</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg></div>
+        <div class="service-name">Engagement Look</div>
+        <div class="service-desc">Radiant skin-finish looks for engagement ceremonies &amp; mehendi</div>
+        <div class="service-price">From ₹7,500</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+        <div class="service-name">Reception Glam</div>
+        <div class="service-desc">Glamorous reception &amp; cocktail looks that photograph beautifully</div>
+        <div class="service-price">From ₹7,800</div>
+      </div>
+      <!-- Row 2: 3 cards — all equal -->
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+        <div class="service-name">Party Makeup</div>
+        <div class="service-desc">Fresh, vibrant looks for sangeet, haldi, cocktail &amp; festive parties</div>
+        <div class="service-price">From ₹2,500</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg></div>
+        <div class="service-name">Airbrush Makeup</div>
+        <div class="service-desc">Flawless skin-like coverage lasting 12+ hours, suitable for all skin types</div>
+        <div class="service-price">Add-on service</div>
+      </div>
+      <div class="service-card service-card--trial">
+        <div class="service-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
+        <div class="service-name">Makeup Trials</div>
+        <div class="service-desc">Pre-wedding AI skin analysis trial — test palettes, lock in your perfect look before the big day</div>
+        <div class="service-price">On request</div>
+        <a href="#contact" class="service-trial-cta">Book a Trial →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="container">
+    <div class="section-eyebrow reveal">Portfolio</div>
+    <h2 class="section-title reveal">The <em>Gallery</em></h2>
+    <div class="gallery-tabs reveal">
+      <button class="gallery-tab active" onclick="filterGallery('all',this)">All Looks</button>
+      <button class="gallery-tab" onclick="filterGallery('bridal',this)">Bridal</button>
+      <button class="gallery-tab" onclick="filterGallery('reception',this)">Reception</button>
+      <button class="gallery-tab" onclick="filterGallery('cocktail',this)">Cocktail</button>
+      <button class="gallery-tab" onclick="filterGallery('south',this)">South Indian</button>
+      <button class="gallery-tab" onclick="filterGallery('north',this)">North Indian</button>
+    </div>
+    <div class="gallery-grid reveal" id="galleryGrid">
+
+      <div class="gallery-item" data-cat="bridal north">
+        <img src="https://cdn0.weddingwire.in/vendor/3158/3_2/960/png/whatsapp-image-2023-08-04-at-11-58-42-pm-1-fotor-202308050245_15_453158-169117398758019.jpeg" alt="North Indian Bride" loading="lazy" onerror="this.src='https://cdn0.weddingwire.in/vendor/3158/3_2/960/png/1-fotor-20230804212359_15_453158-169116458687610.jpeg'">
+        <div class="gallery-overlay"><span class="gallery-label">North Indian Bride</span></div>
+      </div>
+
+      <div class="gallery-item" data-cat="reception">
+        <img src="https://cdn0.weddingwire.in/vendor/3158/3_2/960/png/55-remini-enhanced-fotor-20230801164829-fotor-20230804234626_15_453158-169117301191614.jpeg" alt="Reception Glam" loading="lazy" onerror="this.src='https://cdn0.weddingwire.in/vendor/3158/3_2/960/png/akl01096-fotor-20230804213516_15_453158-169116515662477.jpeg'">
+        <div class="gallery-overlay"><span class="gallery-label">Reception Glam</span></div>
+      </div>
+
+      <div class="gallery-item" data-cat="bridal south">
+        <img src="https://cdn0.weddingwire.in/vendor/3158/3_2/960/png/2000-fotor-2023080116420_15_453158-169090300621998.jpeg" alt="South Indian Bride" loading="lazy" onerror="this.src='https://cdn0.weddingwire.in/vendor/3158/3_2/960/jpg/29-fotor-20230801142611-fotor-2023080514938_15_453158-169118040689151.jpeg'">
+        <div class="gallery-overlay"><span class="gallery-label">South Indian Bridal</span></div>
+      </div>
+
+      <div class="gallery-item" data-cat="cocktail">
+        <img src="https://cdn0.weddingwire.in/vendor/3158/3_2/960/png/cocktail-look-02-fotor-20230817164256_15_453158-169229780362269.jpeg" alt="Cocktail Look" loading="lazy" onerror="this.src='https://cdn0.weddingwire.in/vendor/3158/3_2/960/png/cocktail-look-03-fotor-20230817164445_15_453158-169229780333291.jpeg'">
+        <div class="gallery-overlay"><span class="gallery-label">Cocktail Glam</span></div>
+      </div>
+
+      <div class="gallery-item" data-cat="bridal north">
+        <img src="https://cdn0.weddingwire.in/vendor/3158/3_2/960/png/north-indan-bridal-look-1687787911654_15_453158-169121731968747.jpeg" alt="North Indian Bridal" loading="lazy" onerror="this.src='https://cdn0.weddingwire.in/vendor/3158/3_2/960/jpg/1-fotor-20230817163216_15_453158-169229864214846.jpeg'">
+        <div class="gallery-overlay"><span class="gallery-label">North Indian Bridal</span></div>
+      </div>
+
+      <div class="gallery-item" data-cat="reception north">
+        <img src="https://cdn0.weddingwire.in/vendor/3158/3_2/960/png/22-remini-enhanced-1-fotor-20230801163129-fotor-2023080510459_15_453158-169121012845198.jpeg" alt="Reception Look" loading="lazy" onerror="this.src='https://cdn0.weddingwire.in/vendor/3158/3_2/960/png/2-fotor-fotor-20230804203812_15_453158-169116178544250.jpeg'">
+        <div class="gallery-overlay"><span class="gallery-label">Reception Look</span></div>
+      </div>
+
+      <div class="gallery-item" data-cat="bridal south">
+        <img src="https://cdn0.weddingwire.in/vendor/3158/3_2/960/jpg/whatsapp-image-2023-07-31-at-11-02-17-pm-fotor-2023080117298_15_453158-169096682921115.jpeg" alt="Muhurtham Bride" loading="lazy" onerror="this.src='https://cdn0.weddingwire.in/vendor/3158/3_2/960/png/kavya-4_15_453158-169696932513425.jpeg'">
+        <div class="gallery-overlay"><span class="gallery-label">Muhurtham Bride</span></div>
+      </div>
+
+      <div class="gallery-item" data-cat="cocktail">
+        <img src="https://cdn0.weddingwire.in/vendor/3158/3_2/960/png/cocktail-look-03-fotor-20230817164445_15_453158-169229780333291.jpeg" alt="Cocktail Look" loading="lazy" onerror="this.src='https://cdn0.weddingwire.in/vendor/3158/3_2/960/png/7-fotor-202308011622-fotor-20230804214140_15_453158-169116552264624.jpeg'">
+        <div class="gallery-overlay"><span class="gallery-label">Evening Glam</span></div>
+      </div>
+
+      <div class="gallery-item" data-cat="bridal north">
+        <img src="https://cdn0.weddingwire.in/vendor/3158/3_2/960/png/1-fotor-20230804212359_15_453158-169116458687610.jpeg" alt="North Indian Bridal" loading="lazy" onerror="this.src='https://cdn0.weddingwire.in/vendor/3158/3_2/960/png/32-fotor-20230801152226-fotor-20230804221018_15_453158-169116724786362.jpeg'">
+        <div class="gallery-overlay"><span class="gallery-label">Bridal Look</span></div>
+      </div>
+
+      <div class="gallery-item" data-cat="reception">
+        <img src="https://cdn0.weddingwire.in/vendor/3158/3_2/960/png/akl01096-fotor-20230804213516_15_453158-169116515662477.jpeg" alt="Reception" loading="lazy" onerror="this.src='https://cdn0.weddingwire.in/vendor/3158/3_2/960/png/2-fotor-fotor-20230804203812_15_453158-169116178544250.jpeg'">
+        <div class="gallery-overlay"><span class="gallery-label">Reception Look</span></div>
+      </div>
+
+      <div class="gallery-item" data-cat="bridal south">
+        <img src="https://cdn0.weddingwire.in/vendor/3158/3_2/960/jpg/0o0a3924_15_453158-169096742732709.jpeg" alt="Muhurtham Look" loading="lazy" onerror="this.src='https://cdn0.weddingwire.in/vendor/3158/3_2/960/png/kavya-22_15_453158-169696932521419.jpeg'">
+        <div class="gallery-overlay"><span class="gallery-label">Muhurtham Look</span></div>
+      </div>
+
+      <div class="gallery-item" data-cat="bridal north">
+        <img src="https://cdn0.weddingwire.in/vendor/3158/3_2/960/png/2-fotor-fotor-20230804203812_15_453158-169116178544250.jpeg" alt="Bridal Makeup" loading="lazy" onerror="this.src='https://cdn0.weddingwire.in/vendor/3158/3_2/960/jpg/akl00278-fotor-20230804212223_15_453158-169116458666175.jpeg'">
+        <div class="gallery-overlay"><span class="gallery-label">Bridal Makeup</span></div>
+      </div>
+
+    </div>
+  </div>
+  <!-- SCROLLING STRIP -->
+  <div class="looks-strip" style="margin-top:4rem">
+    <div class="looks-track">
+      <div class="look-chip"><img src="https://cdn0.weddingwire.in/vendor/3158/3_2/960/jpg/whatsapp-image-2022-11-18-at-18-35-30-fotor-2023080103542_15_453158-169090314494715.jpeg" alt="" loading="lazy" onerror="this.src='https://cdn0.weddingwire.in/vendor/3158/3_2/960/png/1-fotor-20230804212359_15_453158-169116458687610.jpeg'"></div>
+      <div class="look-chip"><img src="https://cdn0.weddingwire.in/vendor/3158/3_2/960/png/7-fotor-202308011622-fotor-20230804214140_15_453158-169116552264624.jpeg" alt="" loading="lazy" onerror="this.src='https://cdn0.weddingwire.in/vendor/3158/3_2/960/png/2-fotor-fotor-20230804203812_15_453158-169116178544250.jpeg'"></div>
+      <div class="look-chip"><img src="https://cdn0.weddingwire.in/vendor/3158/3_2/960/jpg/29-fotor-20230801142611-fotor-2023080514938_15_453158-169118040689151.jpeg" alt="" loading="lazy" onerror="this.src='https://cdn0.weddingwire.in/vendor/3158/3_2/960/png/55-remini-enhanced-fotor-20230801164829-fotor-20230804234626_15_453158-169117301191614.jpeg'"></div>
+      <div class="look-chip"><img src="https://cdn0.weddingwire.in/vendor/3158/3_2/960/png/10-remini-enhanced-1-fotor-2023080512751_15_453158-169117910681204.jpeg" alt="" loading="lazy" onerror="this.src='https://cdn0.weddingwire.in/vendor/3158/3_2/960/png/2000-fotor-2023080116420_15_453158-169090300621998.jpeg'"></div>
+      <div class="look-chip"><img src="https://cdn0.weddingwire.in/vendor/3158/3_2/960/png/whatsapp-image-2023-08-03-at-10-31-38-pm-fotor-202308051217_15_453158-169117760379340.jpeg" alt="" loading="lazy" onerror="this.src='https://cdn0.weddingwire.in/vendor/3158/3_2/960/png/cocktail-look-02-fotor-20230817164256_15_453158-169229780362269.jpeg'"></div>
+      <div class="look-chip"><img src="https://cdn0.weddingwire.in/vendor/3158/3_2/960/png/22-remini-enhanced-1-fotor-20230801163129-fotor-2023080510459_15_453158-169121012845198.jpeg" alt="" loading="lazy" onerror="this.src='https://cdn0.weddingwire.in/vendor/3158/3_2/960/png/north-indan-bridal-look-1687787911654_15_453158-169121731968747.jpeg'"></div>
+      <div class="look-chip"><img src="https://cdn0.weddingwire.in/vendor/3158/3_2/960/png/cocktail-look-03-fotor-20230817164445_15_453158-169229780333291.jpeg" alt="" loading="lazy" onerror="this.src='https://cdn0.weddingwire.in/vendor/3158/3_2/960/png/akl01096-fotor-20230804213516_15_453158-169116515662477.jpeg'"></div>
+      <div class="look-chip"><img src="https://cdn0.weddingwire.in/vendor/3158/3_2/960/jpg/1-fotor-20230817163216_15_453158-169229864214846.jpeg" alt="" loading="lazy" onerror="this.src='https://cdn0.weddingwire.in/vendor/3158/3_2/960/png/1-fotor-fotor-20230804204758_15_453158-169116240588151.jpeg'"></div>
+      <!-- Duplicate for seamless loop -->
+      <div class="look-chip"><img src="https://cdn0.weddingwire.in/vendor/3158/3_2/960/jpg/whatsapp-image-2022-11-18-at-18-35-30-fotor-2023080103542_15_453158-169090314494715.jpeg" alt="" loading="lazy" onerror="this.src='https://cdn0.weddingwire.in/vendor/3158/3_2/960/png/1-fotor-20230804212359_15_453158-169116458687610.jpeg'"></div>
+      <div class="look-chip"><img src="https://cdn0.weddingwire.in/vendor/3158/3_2/960/png/7-fotor-202308011622-fotor-20230804214140_15_453158-169116552264624.jpeg" alt="" loading="lazy" onerror="this.src='https://cdn0.weddingwire.in/vendor/3158/3_2/960/png/2-fotor-fotor-20230804203812_15_453158-169116178544250.jpeg'"></div>
+      <div class="look-chip"><img src="https://cdn0.weddingwire.in/vendor/3158/3_2/960/jpg/29-fotor-20230801142611-fotor-2023080514938_15_453158-169118040689151.jpeg" alt="" loading="lazy" onerror="this.src='https://cdn0.weddingwire.in/vendor/3158/3_2/960/png/55-remini-enhanced-fotor-20230801164829-fotor-20230804234626_15_453158-169117301191614.jpeg'"></div>
+      <div class="look-chip"><img src="https://cdn0.weddingwire.in/vendor/3158/3_2/960/png/10-remini-enhanced-1-fotor-2023080512751_15_453158-169117910681204.jpeg" alt="" loading="lazy" onerror="this.src='https://cdn0.weddingwire.in/vendor/3158/3_2/960/png/2000-fotor-2023080116420_15_453158-169090300621998.jpeg'"></div>
+      <div class="look-chip"><img src="https://cdn0.weddingwire.in/vendor/3158/3_2/960/png/whatsapp-image-2023-08-03-at-10-31-38-pm-fotor-202308051217_15_453158-169117760379340.jpeg" alt="" loading="lazy" onerror="this.src='https://cdn0.weddingwire.in/vendor/3158/3_2/960/png/cocktail-look-02-fotor-20230817164256_15_453158-169229780362269.jpeg'"></div>
+      <div class="look-chip"><img src="https://cdn0.weddingwire.in/vendor/3158/3_2/960/png/22-remini-enhanced-1-fotor-20230801163129-fotor-2023080510459_15_453158-169121012845198.jpeg" alt="" loading="lazy" onerror="this.src='https://cdn0.weddingwire.in/vendor/3158/3_2/960/png/north-indan-bridal-look-1687787911654_15_453158-169121731968747.jpeg'"></div>
+      <div class="look-chip"><img src="https://cdn0.weddingwire.in/vendor/3158/3_2/960/png/cocktail-look-03-fotor-20230817164445_15_453158-169229780333291.jpeg" alt="" loading="lazy" onerror="this.src='https://cdn0.weddingwire.in/vendor/3158/3_2/960/png/akl01096-fotor-20230804213516_15_453158-169116515662477.jpeg'"></div>
+      <div class="look-chip"><img src="https://cdn0.weddingwire.in/vendor/3158/3_2/960/jpg/1-fotor-20230817163216_15_453158-169229864214846.jpeg" alt="" loading="lazy" onerror="this.src='https://cdn0.weddingwire.in/vendor/3158/3_2/960/png/1-fotor-fotor-20230804204758_15_453158-169116240588151.jpeg'"></div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="container">
+    <div class="section-eyebrow reveal">Real Brides Say</div>
+    <h2 class="section-title reveal">Stories of <em>Beautiful</em> Moments</h2>
+    <div class="testimonials-grid">
+      <div class="testimonial-card reveal">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"Her work is pure natural, elegance and radiant. She gave me the looks that I have been dreaming of and all the family appreciated her work. Queen of Natural Makeup!"</p>
+        <div class="testimonial-author">Devangini</div>
+        <div class="testimonial-occasion">Engagement Look · 2023</div>
+      </div>
+      <div class="testimonial-card reveal reveal-delay-1">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"The base makeup was flawless, very lightweight, and it stayed intact from my early-morning muhurtham till the end of the ceremony. I highly recommend Needhi."</p>
+        <div class="testimonial-author">Prerna</div>
+        <div class="testimonial-occasion">Telugu Wedding · 2025</div>
+      </div>
+      <div class="testimonial-card reveal reveal-delay-2">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"She analyzed my skin with an AI tool and recommended a customized makeup style that perfectly suited my personality. The makeup was sweatproof and looked stunning in every photo."</p>
+        <div class="testimonial-author">Bride from RR Nagar</div>
+        <div class="testimonial-occasion">Bridal Makeup · 2024</div>
+      </div>
+      <div class="testimonial-card reveal reveal-delay-3">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"The cosmetic products lasted for more than 8 hours without any touch-ups! Her punctuality and professionalism made the entire experience seamless and stress-free."</p>
+        <div class="testimonial-author">Akriti, London</div>
+        <div class="testimonial-occasion">Skin-Finish Look · 2024</div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:3rem">
+      <div class="reveal" style="display:inline-flex;align-items:center;gap:2rem;background:var(--dark);padding:1.5rem 3rem;border-radius:2px;">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:300;color:var(--gold);line-height:1;">4.8</div>
+        <div style="border-left:1px solid rgba(201,169,110,0.2);height:50px;"></div>
+        <div>
+          <div style="color:var(--gold);letter-spacing:0.1em;">★★★★★</div>
+          <div style="font-size:0.7rem;color:rgba(255,255,255,0.5);letter-spacing:0.12em;text-transform:uppercase;margin-top:0.3rem;">78 Reviews · 96% Recommend</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="container">
+    <div style="text-align:center">
+      <div class="section-eyebrow reveal" style="justify-content:center">The Journey</div>
+      <h2 class="section-title reveal" style="text-align:center">How It <em>Works</em></h2>
+    </div>
+    <div class="process-steps">
+      <div class="process-step reveal"><div class="step-num">01</div><div class="step-title">Initial Consultation</div><p class="step-desc">Connect via WhatsApp or DM. Discuss your wedding events, dates, and the look you envision.</p></div>
+      <div class="process-step reveal reveal-delay-1"><div class="step-num">02</div><div class="step-title">Makeup Trial</div><p class="step-desc">AI skin analysis to understand your skin's needs, followed by a trial session to finalise your look.</p></div>
+      <div class="process-step reveal reveal-delay-2"><div class="step-num">03</div><div class="step-title">Confirm &amp; Book</div><p class="step-desc">Secure your date with a 50% advance. Nidhi handles all events — from haldi to reception.</p></div>
+      <div class="process-step reveal reveal-delay-3"><div class="step-num">04</div><div class="step-title">Your Big Day</div><p class="step-desc">On-location service at your residence or venue. Look stunning all day, every moment captured perfectly.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="container">
+    <div style="text-align:center">
+      <div class="section-eyebrow reveal" style="justify-content:center;color:var(--gold)">Transparent Pricing</div>
+      <h2 class="section-title reveal" style="text-align:center;color:var(--white)">Investment in Your <em>Beauty</em></h2>
+    </div>
+    <div class="pricing-grid">
+      <div class="pricing-card reveal">
+        <div class="pricing-tier">For Friends &amp; Family</div>
+        <div class="pricing-name">Party Look</div>
+        <div class="pricing-price"><span>₹</span>2,500 <span style="font-size:1rem">– 4,999</span></div>
+        <div class="pricing-divider"></div>
+        <ul class="pricing-features">
+          <li>Regular party makeup</li><li>Hairstyling included</li><li>Garment draping</li><li>Eyelash application</li><li>Suitable for mehndi, haldi, sangeet</li>
+        </ul>
+        <a href="#contact" class="pricing-cta">Enquire Now</a>
+      </div>
+      <div class="pricing-card featured reveal reveal-delay-1">
+        <div class="featured-badge">Most Popular</div>
+        <div class="pricing-tier">Signature Package</div>
+        <div class="pricing-name">Bridal Luxury</div>
+        <div class="pricing-price"><span>₹</span>10,000 <span style="font-size:1rem">– 14,999</span></div>
+        <div class="pricing-divider"></div>
+        <ul class="pricing-features">
+          <li>HD or Airbrush bridal makeup</li><li>Professional hairstyling</li><li>Saree / lehenga draping</li><li>Hair extensions</li><li>Eye lenses &amp; nail extensions</li><li>Eyelash application</li><li>AI skin analysis &amp; trial</li>
+        </ul>
+        <a href="#contact" class="pricing-cta">Book Now</a>
+      </div>
+      <div class="pricing-card reveal reveal-delay-2">
+        <div class="pricing-tier">For the Bride's Circle</div>
+        <div class="pricing-name">Reception Glam</div>
+        <div class="pricing-price"><span>₹</span>7,500 <span style="font-size:1rem">– 9,999</span></div>
+        <div class="pricing-divider"></div>
+        <ul class="pricing-features">
+          <li>HD makeup with styling</li><li>Draping &amp; extensions</li><li>Eyelash application</li><li>Suitable for reception / cocktail</li><li>On-location service</li>
+        </ul>
+        <a href="#contact" class="pricing-cta">Enquire Now</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INSTAGRAM SECTION -->
+<section id="instagram" style="background:var(--dark);padding:5rem 0;">
+  <div class="container" style="text-align:center;">
+    <div class="section-eyebrow reveal" style="justify-content:center;color:var(--gold)">Follow Along</div>
+    <h2 class="section-title reveal" style="color:var(--white);text-align:center;">On <em>Instagram</em></h2>
+    <a href="https://www.instagram.com/makeovers_by_nk/" target="_blank" style="display:inline-flex;align-items:center;gap:0.6rem;color:var(--gold);font-size:0.85rem;letter-spacing:0.1em;text-decoration:none;margin-bottom:3rem;" class="reveal">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      @makeovers_by_nk · 8,307 Followers · 1,741 Posts
+    </a>
+  </div>
+  <div class="ig-grid reveal">
+    <div class="ig-item"><img src="https://cdn0.weddingwire.in/vendor/3158/3_2/960/png/devangani-3-fotor-2023080113150-fotor-2023080501351_15_453158-169117465581520.jpeg" alt="" loading="lazy" onerror="this.src='https://cdn0.weddingwire.in/vendor/3158/3_2/960/png/2-fotor-fotor-20230804203812_15_453158-169116178544250.jpeg'"><div class="ig-item-overlay"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div></div>
+    <div class="ig-item"><img src="https://cdn0.weddingwire.in/vendor/3158/3_2/960/jpg/img-20220901-221412-586-fotor-20230801142548_15_453158-169090280824256.jpeg" alt="" loading="lazy" onerror="this.src='https://cdn0.weddingwire.in/vendor/3158/3_2/960/png/1-fotor-20230804212359_15_453158-169116458687610.jpeg'"><div class="ig-item-overlay"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div></div>
+    <div class="ig-item"><img src="https://cdn0.weddingwire.in/vendor/3158/3_2/960/png/2000-fotor-2023080116420_15_453158-169090300621998.jpeg" alt="" loading="lazy" onerror="this.src='https://cdn0.weddingwire.in/vendor/3158/3_2/960/png/55-remini-enhanced-fotor-20230801164829-fotor-20230804234626_15_453158-169117301191614.jpeg'"><div class="ig-item-overlay"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div></div>
+    <div class="ig-item"><img src="https://cdn0.weddingwire.in/vendor/3158/3_2/960/png/cocktail-look-02-fotor-20230817164256_15_453158-169229780362269.jpeg" alt="" loading="lazy" onerror="this.src='https://cdn0.weddingwire.in/vendor/3158/3_2/960/png/cocktail-look-03-fotor-20230817164445_15_453158-169229780333291.jpeg'"><div class="ig-item-overlay"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div></div>
+    <div class="ig-item"><img src="https://cdn0.weddingwire.in/vendor/3158/3_2/960/png/north-indan-bridal-look-1687787911654_15_453158-169121731968747.jpeg" alt="" loading="lazy" onerror="this.src='https://cdn0.weddingwire.in/vendor/3158/3_2/960/jpg/1-fotor-20230817163216_15_453158-169229864214846.jpeg'"><div class="ig-item-overlay"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div></div>
+    <div class="ig-item"><img src="https://cdn0.weddingwire.in/vendor/3158/3_2/960/png/22-remini-enhanced-1-fotor-20230801163129-fotor-2023080510459_15_453158-169121012845198.jpeg" alt="" loading="lazy" onerror="this.src='https://cdn0.weddingwire.in/vendor/3158/3_2/960/png/akl01096-fotor-20230804213516_15_453158-169116515662477.jpeg'"><div class="ig-item-overlay"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div></div>
+  </div>
+  <div style="text-align:center;margin-top:3rem">
+    <a href="https://www.instagram.com/makeovers_by_nk/" target="_blank" class="btn-outline" style="display:inline-block;color:rgba(255,255,255,0.7);">View All on Instagram</a>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-layout">
+      <div class="contact-info">
+        <div class="section-eyebrow reveal">Get In Touch</div>
+        <h2 class="section-title reveal">Begin Your <em>Bridal Journey</em></h2>
+        <p class="reveal">Ready to look and feel your most beautiful self? Reach out to Nidhi to check availability, book a trial, or simply say hello.</p>
+        <div class="contact-detail reveal">
+          <div class="contact-detail-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div><div class="contact-detail-label">Location</div><div class="contact-detail-value">RR Nagar, Bangalore · Outstation available</div></div>
+        </div>
+        <div class="contact-detail reveal">
+          <div class="contact-detail-icon"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></div>
+          <div><div class="contact-detail-label">Instagram</div><div class="contact-detail-value">@makeovers_by_nk</div></div>
+        </div>
+        <div class="contact-detail reveal">
+          <div class="contact-detail-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.59 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.37a16 16 0 0 0 6.72 6.72l.44-.88a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+          <div><div class="contact-detail-label">Availability</div><div class="contact-detail-value">Mon – Sun · By appointment</div></div>
+        </div>
+        <div class="social-row reveal">
+          <a href="https://www.instagram.com/makeovers_by_nk/" target="_blank" class="social-btn">
+            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            Follow on Instagram
+          </a>
+        </div>
+      </div>
+      <div class="reveal">
+        <form class="contact-form" onsubmit="handleSubmit(event)">
+          <div class="form-row">
+            <div class="form-group"><label class="form-label">Your Name</label><input type="text" class="form-input" placeholder="Priya Sharma" required></div>
+            <div class="form-group"><label class="form-label">Phone / WhatsApp</label><input type="tel" class="form-input" placeholder="+91 98765 43210"></div>
+          </div>
+          <div class="form-group"><label class="form-label">Email Address</label><input type="email" class="form-input" placeholder="priya@example.com"></div>
+          <div class="form-row">
+            <div class="form-group"><label class="form-label">Event Type</label><select class="form-select"><option value="">Select occasion</option><option>Bridal Makeup</option><option>Engagement Look</option><option>Reception Glam</option><option>Cocktail / Party</option><option>Sangeet / Mehendi / Haldi</option><option>Baby Shower</option></select></div>
+            <div class="form-group"><label class="form-label">Wedding Date</label><input type="date" class="form-input"></div>
+          </div>
+          <div class="form-group"><label class="form-label">Message</label><textarea class="form-textarea" placeholder="Tell Nidhi about your dream look, heritage, outfits or any special requirements..."></textarea></div>
+          <button type="submit" class="form-submit">Send Enquiry →</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand-name">Makeovers by NK</div>
+        <p class="footer-brand-desc">Nidhi Kansal — Bangalore's luxury bridal makeup expert. Creating timeless, effortless beauty for every bride, every occasion.</p>
+      </div>
+      <div><div class="footer-col-title">Navigate</div><ul class="footer-links"><li><a href="#about">About Nidhi</a></li><li><a href="#services">Services</a></li><li><a href="#gallery">Portfolio</a></li><li><a href="#testimonials">Reviews</a></li><li><a href="#pricing">Pricing</a></li></ul></div>
+      <div><div class="footer-col-title">Services</div><ul class="footer-links"><li><a href="#services">Bridal Makeup</a></li><li><a href="#services">HD &amp; Airbrush</a></li><li><a href="#services">Hairstyling</a></li><li><a href="#services">Saree Draping</a></li><li><a href="#services">Makeup Trials</a></li></ul></div>
+      <div><div class="footer-col-title">Connect</div><ul class="footer-links"><li><a href="https://www.instagram.com/makeovers_by_nk/" target="_blank">@makeovers_by_nk</a></li><li><a href="#">WeddingWire Profile</a></li><li><a href="#">WedMeGood Profile</a></li><li><a href="#contact">Book Now</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2024 Makeovers by NK · Nidhi Kansal · Bangalore, India</div>
+      <a href="https://www.instagram.com/makeovers_by_nk/" target="_blank" style="display:flex;align-items:center;gap:0.5rem;text-decoration:none;color:rgba(255,255,255,0.3);font-size:0.65rem;letter-spacing:0.1em;transition:color 0.3s;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        @makeovers_by_nk
+      </a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Nav scroll
+const navbar=document.getElementById('navbar');
+window.addEventListener('scroll',()=>{navbar.classList.toggle('scrolled',window.scrollY>60);});
+
+// Mobile menu
+function toggleMenu(){navbar.classList.toggle('menu-open');}
+document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>navbar.classList.remove('menu-open')));
+
+// Reveal on scroll
+const revealObs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>revealObs.observe(el));
+
+// Gallery filter
+function filterGallery(cat,btn){
+  document.querySelectorAll('.gallery-tab').forEach(t=>t.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.gallery-item').forEach(item=>{
+    const cats=item.dataset.cat||'';
+    const show=cat==='all'||cats.includes(cat);
+    item.style.opacity=show?'1':'0.15';
+    item.style.transform=show?'':'scale(0.95)';
+    item.style.transition='opacity 0.4s,transform 0.4s';
+  });
+}
+
+// Form submit
+function handleSubmit(e){
+  e.preventDefault();
+  const btn=e.target.querySelector('.form-submit');
+  btn.textContent='Enquiry Sent! Nidhi will reach out soon ✓';
+  btn.style.background='var(--dark)';
+  btn.style.color='var(--gold)';
+  btn.disabled=true;
+}
+
+// ── Hero slideshow ──
+(function(){
+  const slides = document.querySelectorAll('.hero-slide');
+  const dots = document.querySelectorAll('.hero-dot');
+  if(!slides.length) return;
+  let current = 0;
+  let timer;
+  const INTERVAL = 6000;
+
+  function show(n){
+    slides[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    current = (n + slides.length) % slides.length;
+    slides[current].classList.add('active');
+    dots[current].classList.add('active');
+    // restart the fill animation on the active dot
+    const fillDot = dots[current];
+    fillDot.classList.remove('active');
+    void fillDot.offsetWidth;
+    fillDot.classList.add('active');
+  }
+  function next(){ show(current + 1); }
+  function start(){ timer = setInterval(next, INTERVAL); }
+  function reset(){ clearInterval(timer); start(); }
+
+  window.goToSlide = function(n){ show(n); reset(); };
+  start();
+})();
+</script>
+</body>
+</html>
